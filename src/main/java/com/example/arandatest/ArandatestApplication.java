@@ -19,7 +19,7 @@ public class ArandatestApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Examen examen1 = new Examen();
+        /*Examen examen1 = new Examen();
         examen1.setCodigoExamen("ExamenPrueba");
         examen1.setNombreExamen("Examen de Prueba");
         examen1.setZonaHoraria("America/New_York");
@@ -29,6 +29,6 @@ public class ArandatestApplication implements CommandLineRunner {
         examen2.setCodigoExamen("ExamenPrueba");
         examen2.setNombreExamen("Examen de Prueba");
         examen2.setZonaHoraria("America/Buenos_Aires");
-        examenRepository.save(examen2);
+        examenRepository.save(examen2);*/
     }
 }

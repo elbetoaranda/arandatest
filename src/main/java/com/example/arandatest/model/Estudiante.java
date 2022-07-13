@@ -5,31 +5,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "examenes")
-public class Examen {
+@Table(name = "estudiantes")
+public class Estudiante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "codigo_examen", nullable = false)
-    private String codigoExamen;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
-    @Column(name = "nombre_examen", nullable = false)
-    private String nombreExamen;
+    @Column(name = "edad", nullable = false)
+    private int edad;
+
+    @Column(name = "ciudad", nullable = false)
+    private String ciudad;
 
     @Column(name = "zona_horaria", nullable = false)
     private String zonaHoraria;
 
     @Column(name = "activa", columnDefinition = "boolean default true")
     private boolean activa = true;
-
-    @OneToMany (mappedBy = "examen", fetch = FetchType.LAZY)
-    private Set<Pregunta> preguntas;
 }
