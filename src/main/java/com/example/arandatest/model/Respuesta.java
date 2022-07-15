@@ -1,14 +1,7 @@
 package com.example.arandatest.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "respuestas")
 public class Respuesta {
@@ -31,4 +24,58 @@ public class Respuesta {
 
     @Column(name = "activa", columnDefinition = "boolean default true")
     private boolean activa = true;
+
+    public Respuesta() {
+    }
+
+    public Respuesta(Asignacion asignacion, Pregunta pregunta, String respuesta, boolean correcta) {
+        this.asignacion = asignacion;
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
+        this.correcta = correcta;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Asignacion getAsignacion() {
+        return asignacion;
+    }
+
+    public void setAsignacion(Asignacion asignacion) {
+        this.asignacion = asignacion;
+    }
+
+    public Pregunta getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(Pregunta pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+
+    public boolean isCorrecta() {
+        return correcta;
+    }
+
+    public void setCorrecta(boolean correcta) {
+        this.correcta = correcta;
+    }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void setActiva(boolean activa) {
+        this.activa = activa;
+    }
 }

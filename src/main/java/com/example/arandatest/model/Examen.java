@@ -1,15 +1,10 @@
 package com.example.arandatest.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "examenes")
 public class Examen {
@@ -31,5 +26,60 @@ public class Examen {
     private boolean activa = true;
 
     @OneToMany (mappedBy = "examen", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<Pregunta> preguntas;
+
+    public Examen() {
+    }
+
+    public Examen(String codigoExamen, String nombreExamen, String zonaHoraria, Set<Pregunta> preguntas) {
+        this.codigoExamen = codigoExamen;
+        this.nombreExamen = nombreExamen;
+        this.zonaHoraria = zonaHoraria;
+        this.preguntas = preguntas;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getCodigoExamen() {
+        return codigoExamen;
+    }
+
+    public void setCodigoExamen(String codigoExamen) {
+        this.codigoExamen = codigoExamen;
+    }
+
+    public String getNombreExamen() {
+        return nombreExamen;
+    }
+
+    public void setNombreExamen(String nombreExamen) {
+        this.nombreExamen = nombreExamen;
+    }
+
+    public String getZonaHoraria() {
+        return zonaHoraria;
+    }
+
+    public void setZonaHoraria(String zonaHoraria) {
+        this.zonaHoraria = zonaHoraria;
+    }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void setActiva(boolean activa) {
+        this.activa = activa;
+    }
+
+    public Set<Pregunta> getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(Set<Pregunta> preguntas) {
+        this.preguntas = preguntas;
+    }
 }

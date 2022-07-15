@@ -1,15 +1,8 @@
 package com.example.arandatest.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "asignaciones")
 public class Asignacion {
@@ -38,4 +31,74 @@ public class Asignacion {
 
     @Column(name = "calificacion")
     private Integer calificacion;
+
+    public Asignacion() {
+    }
+
+    public Asignacion(Examen examen, Estudiante estudiante, ZonedDateTime horarioExamen, ZonedDateTime horarioEstudiante) {
+        this.examen = examen;
+        this.estudiante = estudiante;
+        this.horarioExamen = horarioExamen;
+        this.horarioEstudiante = horarioEstudiante;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Examen getExamen() {
+        return examen;
+    }
+
+    public void setExamen(Examen examen) {
+        this.examen = examen;
+    }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public ZonedDateTime getHorarioExamen() {
+        return horarioExamen;
+    }
+
+    public void setHorarioExamen(ZonedDateTime horarioExamen) {
+        this.horarioExamen = horarioExamen;
+    }
+
+    public ZonedDateTime getHorarioEstudiante() {
+        return horarioEstudiante;
+    }
+
+    public void setHorarioEstudiante(ZonedDateTime horarioEstudiante) {
+        this.horarioEstudiante = horarioEstudiante;
+    }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void setActiva(boolean activa) {
+        this.activa = activa;
+    }
+
+    public boolean isContestada() {
+        return contestada;
+    }
+
+    public void setContestada(boolean contestada) {
+        this.contestada = contestada;
+    }
+
+    public Integer getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(Integer calificacion) {
+        this.calificacion = calificacion;
+    }
 }
